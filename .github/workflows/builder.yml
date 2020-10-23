@@ -52,7 +52,8 @@ jobs:
           $BUILD_ARGS \
           --all \
           --target /data \
-          --generic ${{ steps.version.outputs.version }}
+          --generic ${{ steps.version.outputs.version }} \
+          --docker-hub ludeeus
 
     - name: Update version file
       if: steps.version.outputs.publish == 'true'
