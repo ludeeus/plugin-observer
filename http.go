@@ -70,7 +70,6 @@ func apiRestart(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Return the content
 	w.WriteHeader(http.StatusOK)
 }
 
