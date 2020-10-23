@@ -45,15 +45,15 @@ jobs:
       if: steps.version.outputs.publish == 'false'
       run: echo "BUILD_ARGS=--test" >> $GITHUB_ENV
 
-    - name: Build plugin
-      uses: home-assistant/builder@2020.10.0
-      with:
-        args: |
-          $BUILD_ARGS \
-          --all \
-          --target /data \
-          --generic ${{ steps.version.outputs.version }} \
-          --docker-hub ludeeus
+#    - name: Build plugin
+#      uses: home-assistant/builder@2020.10.0
+#      with:
+#        args: |
+#          $BUILD_ARGS \
+#          --all \
+#          --target /data \
+#          --generic ${{ steps.version.outputs.version }} \
+#          --docker-hub ludeeus
 
     - name: Update version file
       if: steps.version.outputs.publish == 'true'
