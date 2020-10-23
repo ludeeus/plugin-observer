@@ -22,13 +22,13 @@ jobs:
 
     - name: Get version
       id: version
-      uses: home-assistant/actions/helpers/version@master
+      uses: ludeeus/actions-1/helpers/version@master
       with:
         type: $BUILD_TYPE
 
     - name: Initialize git
       if: steps.version.outputs.publish == 'true'
-      uses: home-assistant/actions/helpers/git-init@master
+      uses: ludeeus/actions-1/helpers/git-init@master
       with:
         name: ${{ secrets.GIT_NAME }}
         email: ${{ secrets.GIT_EMAIL }}
@@ -56,7 +56,7 @@ jobs:
 
     - name: Update version file
       if: steps.version.outputs.publish == 'true'
-      uses: home-assistant/actions/helpers/version-push@master
+      uses: ludeeus/actions-1/helpers/version-push@master
       with:
         key: $BUILD_NAME
         version: ${{ steps.version.outputs.version }}
